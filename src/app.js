@@ -5,14 +5,25 @@ window.Alpine = Alpine;
 Alpine.plugin(intersect);
 Alpine.plugin(collapse);
 
-Alpine.data("navBar", () => ({
-  open: false,
-  shadow: false,
-  cards: false,
-  btn: false,
-  project: 1,
-  active: 1,
+//Navigation
+Alpine.data("navigation", () => ({
+  openMobileNavBar: false,
+  navBarShadow: false,
+  homeButton: false,
+  activeLink: 1,
 
+  toggleMobileNavBar() {
+    this.openMobileNavBar = !this.openMobileNavBar;
+  },
+
+  toggleShadow() {
+    this.shadow = !this.shadow;
+  },
+}));
+
+//Skills & Tools
+Alpine.data("skills_and_tools", () => ({
+  showCards: false,
   skills: [
     {
       name: "Laravel",
@@ -58,6 +69,14 @@ Alpine.data("navBar", () => ({
       alt: "Laravel Icon",
     },
   ],
+}));
+
+//Projects
+Alpine.data("projects", () => ({
+  projectIndex: 1,
+  toggleProject(projecNum) {
+    this.projectIndex = projecNum;
+  },
 
   laravels: [
     {
@@ -121,20 +140,6 @@ Alpine.data("navBar", () => ({
       tools: ["HTML", "CSS", "JavaScript"],
     }, */
   ],
-
-  toggleMenu() {
-    this.open = !this.open;
-    console.log(window.location.href);
-  },
-
-  toggleShadow() {
-    this.shadow = !this.shadow;
-  },
-
-  toggleProject(projecNum) {
-    this.project = projecNum;
-    console.log(this.project);
-  },
 }));
 
 Alpine.start();
