@@ -60,7 +60,10 @@
           </li>
         </ul>
 
-        <button class="md:hidden cursor-pointer" @click="toggleMobileNavBar()">
+        <button
+          class="md:hidden cursor-pointer z-2"
+          @click="toggleMobileNavBar()"
+        >
           <div class="swap cursor-default swap-rotate">
             <!-- this hidden checkbox controls the state -->
             <input type="checkbox" x-model="openMobileNavBar" />
@@ -96,15 +99,15 @@
 
       <!-- Mobile Links -->
       <ul
-        class="flex flex-col gap-4 fixed top-0 left-0 md:hidden pl-5 py-5 min-h-screen w-3/4 z-1 bg-white"
+        class="flex flex-col gap-4 fixed top-0 right-0 pt-18 md:hidden pl-5 py-5 min-h-screen w-3/4 z-1 bg-white"
         x-cloak
         x-show="openMobileNavBar"
         x-transition:enter="transition ease-out duration-300"
-        x-transition:enter-start="-translate-x-full opacity-0"
+        x-transition:enter-start="translate-x-full opacity-0"
         x-transition:enter-end="translate-x-0 opacity-100"
         x-transition:leave="transition ease-in duration-300"
         x-transition:leave-start="translate-x-0 opacity-100"
-        x-transition:leave-end="-translate-x-full opacity-0"
+        x-transition:leave-end="translate-x-full opacity-0"
         @click.outside="openMobileNavBar = false"
       >
         <li>
@@ -163,15 +166,18 @@
         x-intersect.leave.half="homeButton = false"
       >
         <div>
-          <h1 class="text-7xl">Hey There, I'm Ben</h1>
+          <h1 class="text-7xl pb-4">Hey There, I'm Ben</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
             architecto, eligendi iusto fugiat nobis, natus sequi veritatis
             voluptate illum tenetur ipsam, illo laborum accusamus vero eius?
             Aspernatur rerum sapiente vitae?
           </p>
-          <div class="py-4 text-green-700 text-6xl">
-            <p><span class="greenText"></span><span id="curSor">|</span></p>
+          <div class="text-green-700 text-6xl">
+            <p class="pb-4 font-bold">
+              <span class="greenText"></span
+              ><span id="curSor" class="animate-ping">|</span>
+            </p>
           </div>
           <a
             href="#portfolio"
@@ -187,7 +193,7 @@
           class="fixed bottom-10 right-10 not-md:hidden"
           x-show="homeButton"
           x-cloak
-          x-transition
+          x-transition.scale.duration.300ms
           ><div class="bg-white shadow p-3 rounded-full w-10 h-10">
             <img src="./src/up-arrow-svgrepo-com(2).svg" alt="" /></div
         ></a>
@@ -201,7 +207,7 @@
       <!-- SKILLS SECTION -->
       <section
         id="skills"
-        class="my-10 min-h-screen"
+        class="my-10 md:pt-30 min-h-screen"
         x-data="skills_and_tools"
         x-intersect.enter.half="activeLink = 2"
       >
@@ -209,15 +215,15 @@
         <div class="text-center py-4 flex justify-center gap-4">
           <button
             type="button"
-            class="px-8 py-2 rounded-full bg-gray-700 text-center transition-all duration-1000"
+            class="px-8 py-2 rounded-full bg-gray-700 text-center transition-all duration-500"
             @click="showCards = false"
-            :class="showCards ? 'bg-white text-gray-700' : 'text-white' "
+            :class="showCards ? 'bg-white shadow text-gray-700' : 'text-white ' "
           >
             skills
           </button>
           <button
             type="button"
-            class="px-8 rounded-full text-gray-700 text-center transition-all duration-1000"
+            class="px-8 rounded-full text-gray-700 shadow text-center transition-all duration-500"
             @click="showCards = true"
             :class="showCards ? 'bg-gray-700 text-white' : 'bg-white' "
           >
@@ -274,7 +280,7 @@
       <!-- ABOUT SECTION -->
       <section
         id="about"
-        class="min-h-screen"
+        class="min-h-screen md:pt-30"
         x-intersect.enter.half="activeLink = 3"
       >
         <h2 class="text-center py-8">About Me</h2>
@@ -296,7 +302,7 @@
       <!-- PROJECT SECTION -->
       <section
         id="portfolio"
-        class="my-8 min-h-screen"
+        class="my-8 min-h-screen md:pt-30"
         x-data="projects"
         x-ref="sect"
         x-intersect.enter.half="activeLink = 4"
@@ -311,7 +317,7 @@
             type="button"
             class="px-8 py-2 rounded-full bg-gray-700 text-center transition-all duration-500"
             @click="toggleProject(1)"
-            :class="projectIndex == 1 ? 'text-white' : 'bg-white text-gray-700' "
+            :class="projectIndex == 1 ? 'text-white' : 'bg-white text-gray-700 shadow' "
           >
             laravel
           </button>
@@ -321,7 +327,7 @@
             type="button"
             class="px-8 py-2 rounded-full text-gray-700 text-center transition-all duration-500"
             @click="toggleProject(2)"
-            :class="projectIndex == 2 ? 'bg-gray-700 text-white' : 'bg-white text-gray-700' "
+            :class="projectIndex == 2 ? 'bg-gray-700 text-white' : 'bg-white text-gray-700 shadow' "
           >
             emails
           </button>
@@ -331,7 +337,7 @@
             type="button"
             class="px-8 py-2 rounded-full text-gray-700 text-center transition-all duration-500"
             @click="toggleProject(3)"
-            :class="projectIndex == 3 ? 'bg-gray-700 text-white' : 'bg-white text-gray-700' "
+            :class="projectIndex == 3 ? 'bg-gray-700 text-white' : 'bg-white text-gray-700 shadow' "
           >
             wordpress
           </button>
@@ -341,7 +347,7 @@
           <!-- Laravel cards -->
           <div
             class="transition-all duration-500"
-            :class="projectIndex == 1 ? 'opacity-100 visible' : 'opacity-0 invisible' "
+            :class="projectIndex == 1 ? 'opacity-100 visible scale-100 ' : 'opacity-0 invisible scale-98' "
             :style="projectIndex == 3 ? {height: $refs.wordpress.scrollHeight+'px'}: '' "
           >
             <div class="md:grid grid-cols-3 gap-4">
@@ -381,7 +387,7 @@
           <!-- Email cards -->
           <div
             class="absolute top-0 transition-all duration-500"
-            :class="projectIndex == 2 ? 'opacity-100 visible' : 'opacity-0 invisible' "
+            :class="projectIndex == 2 ? 'opacity-100 visible scale-100' : 'opacity-0 invisible scale-98' "
             x-ref="email"
           >
             <div class="md:grid grid-cols-3 gap-4">
@@ -421,7 +427,7 @@
           <!-- Wordpress cards -->
           <div
             class="absolute top-0 transition-all duration-500"
-            :class="projectIndex == 3 ? 'opacity-100 visible' : 'opacity-0 invisible' "
+            :class="projectIndex == 3 ? 'opacity-100 visible scale-100' : 'opacity-0 invisible scale-98' "
             x-ref="wordpress"
           >
             <div class="md:grid grid-cols-3 gap-4">
