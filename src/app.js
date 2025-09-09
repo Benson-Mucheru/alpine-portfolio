@@ -11,6 +11,7 @@ Alpine.data("navigation", () => ({
   navBarShadow: false,
   homeButton: false,
   activeLink: 1,
+  mode: false,
 
   toggleMobileNavBar() {
     this.openMobileNavBar = !this.openMobileNavBar;
@@ -19,6 +20,10 @@ Alpine.data("navigation", () => ({
   toggleShadow() {
     this.shadow = !this.shadow;
   },
+
+  toggleMode() {
+    this.mode = !this.mode;
+  },
 }));
 
 //Skills & Tools
@@ -26,47 +31,57 @@ Alpine.data("skills_and_tools", () => ({
   showCards: false,
   skills: [
     {
-      name: "Laravel",
-      icon: "src/img/icons/laravel.svg",
-      alt: "Laravel Icon",
-    },
-    {
       name: "HTML",
-      icon: "src/img/icons/html-5.svg",
+      icon: "src/img/icons/skills/html.svg",
       alt: "HTML5 Icon",
     },
     {
-      name: "Git",
-      icon: "src/img/icons/git.svg",
-      alt: "Git Icon",
+      name: "Tailwind",
+      icon: "src/img/icons/skills/tailwind.svg",
+      alt: "Tailwind Icon",
     },
     {
-      name: "Linkedin",
-      icon: "src/img/icons/linkedin.svg",
-      alt: "Linkedin Icon",
+      name: "Alpine",
+      icon: "src/img/icons/skills/alpine.svg",
+      alt: "Apline Icon",
+    },
+    {
+      name: "Livewire",
+      icon: "src/img/icons/skills/livewire.svg",
+      alt: "Livewire Icon",
+    },
+    {
+      name: "Laravel",
+      icon: "src/img/icons/skills/laravel.svg",
+      alt: "Laravel Icon",
     },
   ],
 
   tools: [
     {
-      name: "HTML",
-      icon: "src/img/icons/html-5.svg",
-      alt: "HTML5 Icon",
-    },
-    {
       name: "Git",
-      icon: "src/img/icons/git.svg",
+      icon: "src/img/icons/tools/git.svg",
       alt: "Git Icon",
     },
     {
-      name: "Linkedin",
-      icon: "src/img/icons/linkedin.svg",
-      alt: "Linkedin Icon",
+      name: "Google Analytics",
+      icon: "src/img/icons/tools/google-analytics.svg",
+      alt: "Google Analytics Icon",
     },
     {
-      name: "Laravel",
-      icon: "src/img/icons/laravel.svg",
-      alt: "Laravel Icon",
+      name: "Wordpress",
+      icon: "src/img/icons/tools/wordpress.svg",
+      alt: "Wordpress Icon",
+    },
+    {
+      name: "Klaviyo",
+      icon: "src/img/icons/tools/klaviyoo.svg",
+      alt: "Klaviyo Icon",
+    },
+    {
+      name: "Litmus",
+      icon: "src/img/icons/tools/litmus.svg",
+      alt: "Litmus Icon",
     },
   ],
 }));

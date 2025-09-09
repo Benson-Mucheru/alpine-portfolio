@@ -2,6 +2,9 @@
 @import "tailwindcss";
 @plugin "daisyui" {
   themes: cupcake --default;
+  name: "cupcake";
+  default: true;
+  --color-primary: "#ffd6a7";
 }
 
 /* html {
