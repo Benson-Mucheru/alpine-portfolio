@@ -42,7 +42,7 @@ Alpine.data("skills_and_tools", () => ({
     },
     {
       name: "Alpine",
-      icon: "src/img/icons/skills/alpine.svg",
+      icon: "https://pink-dianemarie-1.tiiny.site/alpine.svg",
       alt: "Apline Icon",
     },
     {
