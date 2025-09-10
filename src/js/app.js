@@ -32,12 +32,12 @@ Alpine.data("skills_and_tools", () => ({
   skills: [
     {
       name: "HTML",
-      icon: "src/img/icons/skills/html.svg",
+      icon: "https://orange-merry-27.tiiny.site/html.svg",
       alt: "HTML5 Icon",
     },
     {
       name: "Tailwind",
-      icon: "src/img/icons/skills/tailwind.svg",
+      icon: "https://orange-merry-27.tiiny.site/tailwind.svg",
       alt: "Tailwind Icon",
     },
     {
@@ -47,12 +47,12 @@ Alpine.data("skills_and_tools", () => ({
     },
     {
       name: "Livewire",
-      icon: "src/img/icons/skills/livewire.svg",
+      icon: "https://orange-merry-27.tiiny.site/livewire.svg",
       alt: "Livewire Icon",
     },
     {
       name: "Laravel",
-      icon: "src/img/icons/skills/laravel.svg",
+      icon: "https://orange-merry-27.tiiny.site/laravel.svg",
       alt: "Laravel Icon",
     },
   ],
