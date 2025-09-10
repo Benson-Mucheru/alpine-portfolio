@@ -1,23 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth" data-theme="cupcake">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="stylesheet" href="./src/style.css" />
-    <script src="./src/typeEffect.js" defer></script>
-    <script type="module" src="./src/app.js" defer></script>
+
+    <script type="module" src="/src/js/app.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ben | Porfolio</title>
   </head>
-  <body x-data="navigation" class="bg-primay">
+  <body x-data="navigation">
+    <!-- Backgroud Image -->
+    <div
+      class="absolute top-0 right-0 left-0 bottom-0 -z-1 min-h-screen"
+      style="
+        background-image: url('/src/bg-image.jpeg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      "
+    ></div>
+
     <!-- NAVBAR -->
     <header
-      class="px-4 py-4 md:px-8 sticky top-0 z-1 transition-all duration-300 bg-accent"
-      :class="navBarShadow ? 'md:px-16 md:py-4 shadow-black shadow-lg/10' : '' "
+      class="px-4 py-4 md:px-8 sticky top-0 z-1 transition-all duration-300"
+      :class="navBarShadow ? 'md:px-22 md:py-4 shadow-black shadow-md/5 bg-white' : '' "
     >
       <nav class="flex justify-between items-center">
         <a href="#" class="not-md:flex-1"
-          ><p class="font-ms-maid text-4xl text-neutral">BenMk</p></a
+          ><p class="font-ms-maid text-4xl text-neutral">
+            Ben<span class="text-orange-500">Mk</span>
+          </p></a
         >
         <!-- Desktop Links -->
         <ul class="flex gap-8 not-md:hidden">
@@ -53,64 +66,14 @@
               >Portfolio</a
             >
           </li>
+          <li>
+            <a
+              href="#"
+              class="p-4 px-8 rounded-full bg-orange-500 text-white text-center not-md:hidden"
+              >Contact</a
+            >
+          </li>
         </ul>
-
-        <!-- Theme Controller -->
-        <div>
-          <label class="toggle text-base-content">
-            <input
-              type="checkbox"
-              value="lofi"
-              class="theme-controller"
-              @click="toggleMode"
-            />
-
-            <svg
-              aria-label="sun"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <g
-                stroke-linejoin="round"
-                stroke-linecap="round"
-                stroke-width="2"
-                fill="none"
-                stroke="currentColor"
-              >
-                <circle cx="12" cy="12" r="4"></circle>
-                <path d="M12 2v2"></path>
-                <path d="M12 20v2"></path>
-                <path d="m4.93 4.93 1.41 1.41"></path>
-                <path d="m17.66 17.66 1.41 1.41"></path>
-                <path d="M2 12h2"></path>
-                <path d="M20 12h2"></path>
-                <path d="m6.34 17.66-1.41 1.41"></path>
-                <path d="m19.07 4.93-1.41 1.41"></path>
-              </g>
-            </svg>
-
-            <svg
-              aria-label="moon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <g
-                stroke-linejoin="round"
-                stroke-linecap="round"
-                stroke-width="2"
-                fill="none"
-                stroke="currentColor"
-              >
-                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-              </g>
-            </svg>
-          </label>
-          <a
-            href="#"
-            class="p-4 px-8 rounded-full bg-gray-700 text-white text-center not-md:hidden"
-            >Contact</a
-          >
-        </div>
 
         <!-- Hamburger Button -->
         <button
@@ -212,34 +175,38 @@
     ></section>
 
     <!-- HERO SECTION -->
-    <main class="px-4 md:px-8 xl:max-w-[1280px] mx-auto">
+    <main class="px-4 md:px-22 xl:max-w-[1280px] mx-auto">
       <section
         class="md:flex gap-4 justify-between items-center min-h-screen"
         x-intersect.enter.half="activeLink = 1"
         x-intersect.leave.half="homeButton = false"
       >
-        <div>
-          <h1 class="text-7xl pb-4">Hey There, I'm Ben</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
-            architecto, eligendi iusto fugiat nobis, natus sequi veritatis
-            voluptate illum tenetur ipsam, illo laborum accusamus vero eius?
-            Aspernatur rerum sapiente vitae?
-          </p>
-          <div class="text-green-700 text-6xl">
+        <div class="md:w-1/2">
+          <h4 class="text-xl">Hey There 👋</h4>
+          <h1 class="text-6xl pb-2 font-bold">I am Ben a,</h1>
+          <div class="text-orange-500 text-7xl">
             <p class="pb-4 font-bold">
-              <span class="greenText"></span
+              <span id="role"></span
               ><span id="curSor" class="animate-ping">|</span>
             </p>
           </div>
+          <p class="text-xl pb-2">
+            Specializing in web development and email marketing, I create
+            impactful and engaging online experiences.
+          </p>
+
           <a
             href="#portfolio"
-            class="block p-4 px-8 rounded-full bg-gray-700 text-white max-w-1/2 text-center"
+            class="block p-4 px-8 rounded-full bg-orange-500 text-white max-w-1/2 text-center"
             >Porftolio</a
           >
         </div>
-        <div>
-          <img class="not-md:mx-auto" src="./src/Untitled.png" alt="" />
+        <div class="md:w-1/2">
+          <img
+            class="not-md:mx-auto max-w-[90%]"
+            src="./src/Untitled.png"
+            alt=""
+          />
         </div>
         <a
           href="#"
@@ -253,114 +220,183 @@
       </section>
     </main>
 
+    <!-- SKILLS SECTION -->
+    <section
+      id="skills"
+      class="px-4 pt-20 md:px-22 md:pt-30 relative xl:max-w-[1280px] mx-auto"
+      x-data="skills_and_tools"
+      x-intersect.enter.half="activeLink = 2"
+      x-intersect.enter.half.once="scaleImage = true"
+    >
+      <img
+        src="./src/5.png"
+        alt=""
+        class="absolute left-0 bottom-0 w-1/4 opacity-0 transition-opacity duration-[2s] not-md:hidden"
+        :class="scaleImage ? 'opacity-100' : '' "
+      />
+
+      <img
+        src="./src/7.png"
+        class="absolute top-0 right-0 max-w-1/2 -z-2 scale-0 transition-[scale] duration-1000 not-md:hidden"
+        :class="scaleImage ? 'scale-100' : 'scale-0' "
+        alt=""
+      />
+
+      <h2 class="text-center font-ms-maid text-3xl text-orange-500">Skills</h2>
+
+      <div class="text-center py-4 flex justify-center gap-4">
+        <button
+          type="button"
+          class="px-8 py-2 rounded-full bg-orange-500 text-center transition-all duration-500"
+          @click="showCards = false"
+          :class="showCards ? 'bg-white shadow text-gray-700' : 'text-white ' "
+        >
+          skills
+        </button>
+        <button
+          type="button"
+          class="px-8 rounded-full text-gray-700 shadow text-center transition-all duration-500"
+          @click="showCards = true"
+          :class="showCards ? 'bg-orange-500 text-white' : 'bg-white' "
+        >
+          tools
+        </button>
+      </div>
+
+      <div class="relative border-1 border-white/0">
+        <!-- Skills -->
+        <div
+          class="md:grid grid-cols-3 gap-4 invisible opacity-0 transition-all duration-800"
+          :class="showCards ? '': 'visible opacity-100' "
+          x-cloak
+        >
+          <template x-for="skill in skills">
+            <!-- Card -->
+            <div
+              class="p-4 bg-white/95 shadow hover:shadow-xl transition-hover duration-500 md:p-10 rounded-2xl text-center not-md:my-4"
+            >
+              <img
+                :src="skill.icon"
+                :alt="skill.alt"
+                class="w-1/6 h-auto mx-auto"
+              />
+              <p x-text="skill.name" class="py-2"></p>
+            </div>
+          </template>
+        </div>
+
+        <!-- Tools -->
+        <div
+          class="absolute top-0 left-0 right-0 bottom-0 md:grid grid-cols-3 gap-4"
+          x-cloak
+          x-show="showCards"
+          x-transition.opacity.duration.800ms
+        >
+          <template x-for="tool in tools">
+            <!-- Card -->
+            <div
+              class="p-4 bg-white/95 shadow hover:shadow-xl transition-hover duration-500 md:p-10 rounded-2xl text-center not-md:my-4"
+            >
+              <img
+                :src="tool.icon"
+                :alt="tool.alt"
+                class="w-1/6 h-auto mx-auto"
+              />
+              <p x-text="tool.name" class="py-2"></p>
+            </div>
+          </template>
+        </div>
+      </div>
+    </section>
+
     <main
-      class="px-4 md:px-16 xl:max-w-[1280px] mx-auto"
+      class="px-4 md:px-22 xl:max-w-[1280px] mx-auto"
       x-intersect.enter="homeButton = true"
     >
-      <!-- SKILLS SECTION -->
-      <section
-        id="skills"
-        class="my-10 md:pt-30 md:min-h-screen"
-        x-data="skills_and_tools"
-        x-intersect.enter.half="activeLink = 2"
-      >
-        <h2 class="text-center">Skills</h2>
-        <div class="text-center py-4 flex justify-center gap-4">
-          <button
-            type="button"
-            class="px-8 py-2 rounded-full bg-gray-700 text-center transition-all duration-500"
-            @click="showCards = false"
-            :class="showCards ? 'bg-white shadow text-gray-700' : 'text-white ' "
-          >
-            skills
-          </button>
-          <button
-            type="button"
-            class="px-8 rounded-full text-gray-700 shadow text-center transition-all duration-500"
-            @click="showCards = true"
-            :class="showCards ? 'bg-gray-700 text-white' : 'bg-white' "
-          >
-            tools
-          </button>
-        </div>
-
-        <div class="relative border-1 border-white/0">
-          <!-- Skills -->
-          <div
-            class="md:grid grid-cols-3 gap-4 invisible opacity-0 transition-all duration-800"
-            :class="showCards ? '': 'visible opacity-100' "
-            x-cloak
-          >
-            <template x-for="skill in skills">
-              <!-- Card -->
-              <div
-                class="p-4 bg-gray-300/50 md:p-10 rounded-2xl text-center not-md:my-4"
-              >
-                <img
-                  :src="skill.icon"
-                  :alt="skill.alt"
-                  class="w-1/6 h-auto mx-auto"
-                />
-                <p x-text="skill.name" class="py-2"></p>
-              </div>
-            </template>
-          </div>
-
-          <!-- Tools -->
-          <div
-            class="absolute top-0 left-0 right-0 bottom-0 md:grid grid-cols-3 gap-4"
-            x-cloak
-            x-show="showCards"
-            x-transition.opacity.duration.800ms
-          >
-            <template x-for="tool in tools">
-              <!-- Card -->
-              <div
-                class="p-4 bg-gray-300/50 md:p-10 rounded-2xl text-center not-md:my-4"
-              >
-                <img
-                  :src="tool.icon"
-                  :alt="tool.alt"
-                  class="w-1/6 h-auto mx-auto"
-                />
-                <p x-text="tool.name" class="py-2"></p>
-              </div>
-            </template>
-          </div>
-        </div>
-      </section>
-
       <!-- ABOUT SECTION -->
       <section
         id="about"
-        class="h-fit md:pt-30 md:min-h-screen"
+        x-data="about"
+        class="pt-20 md:pt-30"
         x-intersect.enter.half="activeLink = 3"
+        x-intersect.enter.half.once="active = true"
       >
-        <h2 class="text-center py-8">About Me</h2>
-        <div class="md:flex gap-8 justify-between not-md:text-center">
-          <img
-            src="./src/Publication1.png"
-            class="rounded-full h-1/2 w-1/2 not-md:mx-auto"
-            alt=""
-          />
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim
-            perspiciatis eveniet temporibus recusandae voluptas id, voluptatem
-            autem blanditiis, corrupti officiis, tenetur nihil. Mollitia
-            consequatur maiores laborum molestiae sit, tempora ea.
-          </p>
+        <h2
+          class="font-ms-maid text-3xl text-center font-medium text-orange-500 md:hidden"
+        >
+          About Me
+        </h2>
+
+        <div class="md:flex gap-8 justify-between items-center">
+          <div class="md:max-w-1/2 relative">
+            <img
+              src="./src/Publication1.png"
+              class="mx-auto max-w-[70%] md:max-w-[80%]"
+              alt=""
+            />
+            <img
+              src="./src/1.png"
+              class="absolute -top-10 -translate-x-4 opacity-0 transition-all duration-1000 ease-in not-md:hidden"
+              :class="active ? 'translate-x-0 opacity-100' : '' "
+              alt=""
+            />
+          </div>
+          <article
+            class="text-center md:max-w-1/2 md:text-left md:opacity-0 transition-opacity duration-1000 ease-in relative"
+            :class="active ? 'md:opacity-100' : '' "
+          >
+            <h2
+              class="font-ms-maid text-3xl font-medium text-orange-500 hidden md:block"
+            >
+              About Me
+            </h2>
+            <h3 class="text-4xl not-md:pt-4">Get To Know Me</h3>
+            <p class="py-4 text-[18px]">
+              Hello, I am a fullstack web developer mainly working with Laravel
+              & Livewire. I also create original and impactful HTML Emails that
+              not only engage but also convert users with each campaign, and on
+              the side I work with Wordpress in creation on websites. In
+              addition to my professional work, I like to spend time to work on
+              our farm with my father.
+            </p>
+            <div class="flex gap-2 justify-center md:justify-start">
+              <img
+                src="./src/img/icons/links/github.svg"
+                alt="Github icon"
+                class="w-6"
+              />
+              <img
+                src="./src/img/icons/links/linkedin.svg"
+                alt="Linkedin icon"
+                class="w-7"
+              />
+            </div>
+            <img
+              src="./src/2.png"
+              class="absolute right-0 not-md:hidden"
+              alt=""
+            />
+          </article>
         </div>
       </section>
 
       <!-- PROJECT SECTION -->
       <section
         id="portfolio"
-        class="my-8 min-h-screen md:pt-30"
+        class="pt-20 md:pt-34 relative"
         x-data="projects"
-        x-ref="sect"
         x-intersect.enter.half="activeLink = 4"
+        x-intersect.enter.half.once="active = true"
       >
-        <h2 class="text-center">Projects</h2>
+        <img
+          src="./src/1_1.png"
+          class="absolute top-18 scale-0 transition-[scale] duration-1000 not-md:hidden"
+          :class="active ? 'scale-100' : '' "
+          alt=""
+        />
+        <h2 class="text-center font-ms-maid text-3xl text-orange-500">
+          Projects
+        </h2>
         <!-- Toggle buttons -->
         <div
           class="text-center mx-4 py-4 flex justify-center items-center gap-2 md:gap-4"
@@ -368,7 +404,7 @@
           <!-- Laravel btn -->
           <button
             type="button"
-            class="px-8 py-2 rounded-full bg-gray-700 text-center transition-all duration-500"
+            class="px-8 py-2 rounded-full bg-orange-500 text-center transition-all duration-500"
             @click="toggleProject(1)"
             :class="projectIndex == 1 ? 'text-white' : 'bg-white text-gray-700 shadow' "
           >
@@ -380,7 +416,7 @@
             type="button"
             class="px-8 py-2 rounded-full text-gray-700 text-center transition-all duration-500"
             @click="toggleProject(2)"
-            :class="projectIndex == 2 ? 'bg-gray-700 text-white' : 'bg-white text-gray-700 shadow' "
+            :class="projectIndex == 2 ? 'bg-orange-500 text-white' : 'bg-white text-gray-700 shadow' "
           >
             emails
           </button>
@@ -390,7 +426,7 @@
             type="button"
             class="px-8 py-2 rounded-full text-gray-700 text-center transition-all duration-500"
             @click="toggleProject(3)"
-            :class="projectIndex == 3 ? 'bg-gray-700 text-white' : 'bg-white text-gray-700 shadow' "
+            :class="projectIndex == 3 ? 'bg-orange-500 text-white' : 'bg-white text-gray-700 shadow' "
           >
             wordpress
           </button>
@@ -405,34 +441,57 @@
           >
             <div class="md:grid grid-cols-3 gap-4">
               <template x-for="laravel in laravels">
-                <div class="not-md:my-4 bg-gray-300/50 p-4 rounded-2xl">
+                <div
+                  class="not-md:my-4 bg-gray-600/10 shadow hover:shadow-xl transition-shadow duration-300 p-4 rounded-2xl"
+                >
+                  <!-- Image -->
                   <img
-                    class="rounded-2xl object-cover"
+                    class="rounded-2xl object-cover shadow"
                     :src="laravel.icon"
                     alt=""
                   />
+                  <!-- Title -->
                   <h3
-                    class="text-3xl font-semibold py-2"
+                    class="text-3xl font-semibold pt-2"
                     x-text="laravel.title"
                   ></h3>
-                  <p class="pb-1" x-text="laravel.description"></p>
-                  <div
-                    class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center"
-                  >
-                    <ul class="flex items-center gap-2">
-                      <template x-for="tool in laravel.tools">
-                        <li
-                          class="bg-white px-2 py-1 rounded-full font-semibold text-[14px]"
-                          x-text="tool"
-                        ></li>
-                      </template>
-                    </ul>
-                    <a href="#" class="bg-white p-4 rounded-full not-md:w-full"
+
+                  <!-- Description -->
+                  <p class="opacity-80 py-1" x-text="laravel.description"></p>
+
+                  <!--Tech Stack -->
+                  <ul class="flex items-center gap-2 py-1">
+                    <template x-for="tool in laravel.tools">
+                      <li
+                        class="bg-white text-black px-2 opacity-80 rounded-full font-semibold text-[13px]"
+                        x-text="tool"
+                      ></li>
+                    </template>
+                  </ul>
+
+                  <!-- Links -->
+                  <div class="w-full flex gap-2 my-2">
+                    <a
+                      href="#"
+                      class="bg-white py-2 rounded-full flex justify-center items-center gap-2 w-1/2"
                       ><img
-                        src="src/img/icons/visit.svg"
-                        class="w-8 mx-auto"
-                        alt="arrow icon"
-                    /></a>
+                        src="./src/img/icons/visit.svg"
+                        class="w-6"
+                        alt=""
+                      />
+                      <div class="text-black">Live Demo</div></a
+                    >
+
+                    <a
+                      href="#"
+                      class="bg-white py-2 rounded-full flex justify-center items-center gap-2 w-1/2"
+                      ><img
+                        src="./src/img/icons/links/github.svg"
+                        class="w-6"
+                        alt=""
+                      />
+                      <div class="text-black">Source Code</div></a
+                    >
                   </div>
                 </div>
               </template>
@@ -443,36 +502,59 @@
           <div
             class="absolute top-0 transition-all duration-500"
             :class="projectIndex == 2 ? 'opacity-100 visible scale-100' : 'opacity-0 invisible scale-98' "
-            x-ref="email"
           >
             <div class="md:grid grid-cols-3 gap-4">
               <template x-for="email in emails">
-                <div class="not-md:my-4 bg-gray-300/50 p-4 rounded-2xl">
+                <div
+                  class="not-md:my-4 bg-gray-600/10 shadow hover:shadow-xl transition-shadow duration-300 p-4 rounded-2xl"
+                >
+                  <!-- Image -->
                   <img
                     class="rounded-2xl object-cover"
                     :src="email.icon"
                     alt=""
                   />
+                  <!-- Title -->
                   <h3
-                    class="text-3xl font-semibold py-2"
+                    class="text-3xl font-semibold pt-2"
                     x-text="email.title"
                   ></h3>
-                  <p class="pb-1" x-text="email.description"></p>
-                  <div class="flex justify-between items-center">
-                    <ul class="flex items-center gap-2">
-                      <template x-for="tool in email.tools">
-                        <li
-                          class="bg-white px-2 py-1 rounded-full font-semibold text-[14px]"
-                          x-text="tool"
-                        ></li>
-                      </template>
-                    </ul>
-                    <a href="#" class="bg-white p-4 rounded-full"
+
+                  <!-- Description -->
+                  <p class="opacity-80 py-1" x-text="email.description"></p>
+
+                  <!-- Tech Stack -->
+                  <ul class="flex items-center gap-2 py-1">
+                    <template x-for="tool in email.tools">
+                      <li
+                        class="bg-white text-black px-2 opacity-80 rounded-full font-semibold text-[13px]"
+                        x-text="tool"
+                      ></li>
+                    </template>
+                  </ul>
+                  <!-- Links -->
+                  <div class="w-full flex gap-2 my-2">
+                    <a
+                      href="#"
+                      class="bg-white py-2 rounded-full flex justify-center items-center gap-2 w-1/2"
                       ><img
-                        src="src/img/icons/arrow.svg"
-                        class="w-4"
-                        alt="arrow icon"
-                    /></a>
+                        src="./src/img/icons/visit.svg"
+                        class="w-6"
+                        alt=""
+                      />
+                      <div>Live Demo</div></a
+                    >
+
+                    <a
+                      href="#"
+                      class="bg-white py-2 rounded-full flex justify-center items-center gap-2 w-1/2"
+                      ><img
+                        src="./src/img/icons/links/github.svg"
+                        class="w-6"
+                        alt=""
+                      />
+                      <div>Source Code</div></a
+                    >
                   </div>
                 </div>
               </template>
@@ -487,32 +569,57 @@
           >
             <div class="md:grid grid-cols-3 gap-4">
               <template x-for="wordpress in wordpresses">
-                <div class="not-md:my-4 bg-gray-300/50 p-4 rounded-2xl">
+                <div
+                  class="not-md:my-4 bg-gray-600/10 shadow hover:shadow-xl transition-shadow duration-300 p-4 rounded-2xl"
+                >
+                  <!-- Image -->
                   <img
                     class="rounded-2xl object-cover"
                     :src="wordpress.icon"
                     alt=""
                   />
+
+                  <!-- Title -->
                   <h3
-                    class="text-3xl font-semibold py-2"
+                    class="text-3xl font-semibold pt-2"
                     x-text="wordpress.title"
                   ></h3>
-                  <p class="pb-1" x-text="wordpress.description"></p>
-                  <div class="flex justify-between items-center">
-                    <ul class="flex items-center gap-2">
-                      <template x-for="tool in wordpress.tools">
-                        <li
-                          class="bg-white px-2 py-1 rounded-full font-semibold text-[14px]"
-                          x-text="tool"
-                        ></li>
-                      </template>
-                    </ul>
-                    <a href="#" class="bg-white p-4 rounded-full"
+
+                  <!-- Description -->
+                  <p class="opacity-80 py-1" x-text="wordpress.description"></p>
+
+                  <!-- Tech Stack -->
+                  <ul class="flex items-center gap-2 py-1">
+                    <template x-for="tool in wordpress.tools">
+                      <li
+                        class="bg-white text-black px-2 opacity-80 rounded-full font-semibold text-[13px]"
+                        x-text="tool"
+                      ></li>
+                    </template>
+                  </ul>
+                  <!-- Links -->
+                  <div class="w-full flex gap-2 my-2">
+                    <a
+                      href="#"
+                      class="bg-white py-2 rounded-full flex justify-center items-center gap-2 w-1/2"
                       ><img
-                        src="src/img/icons/arrow.svg"
-                        class="w-4"
-                        alt="arrow icon"
-                    /></a>
+                        src="./src/img/icons/visit.svg"
+                        class="w-6"
+                        alt=""
+                      />
+                      <div>Live Demo</div></a
+                    >
+
+                    <a
+                      href="#"
+                      class="bg-white py-2 rounded-full flex justify-center items-center gap-2 w-1/2"
+                      ><img
+                        src="./src/img/icons/links/github.svg"
+                        class="w-6"
+                        alt=""
+                      />
+                      <div>Source Code</div></a
+                    >
                   </div>
                 </div>
               </template>
@@ -521,12 +628,9 @@
         </div>
       </section>
       <section>
-        <h1>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa ducimus
-          ea consectetur rerum adipisci! Voluptatibus aperiam similique soluta,
-          excepturi, quibusdam dolor nemo vero provident sed ipsam nisi sunt,
-          consequuntur corrupti!
-        </h1>
+        <a href="mailto:bensonmucherukimani"
+          ><p>bensonmucherukimani22@gmail.com</p></a
+        >
       </section>
     </main>
   </body>

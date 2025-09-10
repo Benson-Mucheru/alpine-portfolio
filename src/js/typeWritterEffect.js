@@ -1,5 +1,5 @@
 //Constant Variables
-const description = document.querySelector(".greenText");
+const description = document.getElementById("role");
 const roles = [
   "Web Developer",
   "Email Developer",

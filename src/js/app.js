@@ -1,9 +1,8 @@
 import Alpine from "alpinejs";
-import { collapse } from "@alpinejs/collapse";
 import { intersect } from "@alpinejs/intersect";
+import "./typeWritterEffect";
 window.Alpine = Alpine;
 Alpine.plugin(intersect);
-Alpine.plugin(collapse);
 
 //Navigation
 Alpine.data("navigation", () => ({
@@ -29,6 +28,7 @@ Alpine.data("navigation", () => ({
 //Skills & Tools
 Alpine.data("skills_and_tools", () => ({
   showCards: false,
+  scaleImage: false,
   skills: [
     {
       name: "HTML",
@@ -86,9 +86,14 @@ Alpine.data("skills_and_tools", () => ({
   ],
 }));
 
+//About
+Alpine.data("about", () => ({
+  active: false,
+}));
 //Projects
 Alpine.data("projects", () => ({
   projectIndex: 1,
+  active: false,
   toggleProject(projecNum) {
     this.projectIndex = projecNum;
   },
@@ -97,7 +102,8 @@ Alpine.data("projects", () => ({
     {
       icon: "src/img/icons/card.png",
       title: "Kampat",
-      description: "jskjdkfjskdjfklsdfjdkkf",
+      description:
+        "A website that showcases a company that offers roofing and ceiling services",
       tools: ["HTML", "CSS", "JavaScript", "React"],
     },
     {

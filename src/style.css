@@ -1,10 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap");
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: cupcake --default;
-  name: "cupcake";
-  default: true;
-  --color-primary: "#ffd6a7";
+  themes: none;
 }
 
 /* html {
