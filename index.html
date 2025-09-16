@@ -12,7 +12,7 @@
   <body x-data="navigation">
     <!-- Backgroud Image -->
     <div
-      class="relative min-h-screen"
+      class="relative xl:min-h-screen"
       style="
         background-image: url('/src/bg-image.jpeg');
         background-repeat: no-repeat;
@@ -36,7 +36,7 @@
             <li>
               <a
                 href="#"
-                class="transition-colors duration-300"
+                class="transition-colors duration-300 font-semibold"
                 :class="activeLink == 1 ? 'text-orange-500' : ''"
                 >Home</a
               >
@@ -44,7 +44,7 @@
             <li>
               <a
                 href="#skills"
-                class="transition-colors duration-300"
+                class="transition-colors duration-300 font-semibold"
                 :class="activeLink == 2 ? 'text-orange-500' : ''"
                 >Skills</a
               >
@@ -52,7 +52,7 @@
             <li>
               <a
                 href="#about"
-                class="transition-colors duration-300"
+                class="transition-colors duration-300 font-semibold"
                 :class="activeLink == 3 ? 'text-orange-500' : ''"
                 >About</a
               >
@@ -60,14 +60,14 @@
             <li>
               <a
                 href="#portfolio"
-                class="transition-colors duration-300"
+                class="transition-colors duration-300 font-semibold"
                 :class="activeLink == 4 ? 'text-orange-500' : ''"
                 >Portfolio</a
               >
             </li>
             <li>
               <a
-                href="#"
+                href="#contact"
                 class="p-4 px-8 rounded-full bg-orange-500 text-white text-center not-md:hidden"
                 >Contact</a
               >
@@ -128,7 +128,7 @@
           <li>
             <a
               @click.self="openMobileNavBar = false"
-              class="transition-colors duration-300"
+              class="transition-colors duration-300 font-semibold"
               :class="activeLink == 1 ? 'text-orange-500' : ''"
               href="#"
               >Home</a
@@ -137,7 +137,7 @@
           <li>
             <a
               @click.self="openMobileNavBar = false"
-              class="transition-colors duration-300"
+              class="transition-colors duration-300 font-semibold"
               :class="activeLink == 2 ? 'text-orange-500' : ''"
               href="#skills"
               >Skills</a
@@ -146,7 +146,7 @@
           <li>
             <a
               @click.self="openMobileNavBar = false"
-              class="transition-colors duration-300"
+              class="transition-colors duration-300 font-semibold"
               :class="activeLink == 3 ? 'text-orange-500' : ''"
               href="#about"
               >About</a
@@ -155,14 +155,18 @@
           <li>
             <a
               @click.self="openMobileNavBar = false"
-              class="transition-colors duration-300"
+              class="transition-colors duration-300 font-semibold"
               :class="activeLink == 4 ? 'text-orange-500' : ''"
               href="#portfolio"
               >Porfolio</a
             >
           </li>
           <li>
-            <a @click.self="openMobileNavBar = false" href="#contact"
+            <a
+              @click.self="openMobileNavBar = false"
+              class="transition-colors duration-300 font-semibold"
+              :class="activeLink == 5 ? 'text-orange-500' : ''"
+              href="#contact"
               >Contact</a
             >
           </li>
@@ -176,22 +180,20 @@
       ></section>
 
       <!-- HERO SECTION -->
-      <main class="px-4 md:px-22 xl:max-w-[1280px] mx-auto not-md:pt-20">
+      <main class="px-4 md:px-22 xl:max-w-[1280px] mx-auto not-xl:pt-20">
         <section
-          class="md:flex gap-4 justify-between items-center min-h-screen"
+          class="md:flex gap-4 justify-between items-center xl:min-h-screen"
           x-intersect.enter.half="activeLink = 1"
           x-intersect.leave.half="homeButton = false"
         >
           <div class="md:w-1/2">
-            <h4 class="text-xl">Hey There 👋</h4>
-            <h1 class="text-4xl pb-2 font-bold md:text-6xl">I am Ben a,</h1>
-            <p
-              class="pb-4 font-bold text-orange-500 text-3xl md:text-4xl xl:text-5xl"
-            >
+            <h4 class="text-xl font-semibold">Hey There! 👋</h4>
+            <h1 class="text-5xl pb-2 font-bold xl:text-6xl">I am Ben a,</h1>
+            <p class="pb-4 font-semibold text-green-500 text-4xl xl:text-5xl">
               <span id="role"></span
               ><span id="curSor" class="animate-ping">|</span>
             </p>
-            <p class="text-xl pb-2">
+            <p class="text-lg pb-4 text-black/80">
               Specializing in web development and email marketing, I create
               impactful and engaging online experiences.
             </p>
@@ -203,11 +205,7 @@
             >
           </div>
           <div class="md:w-1/2">
-            <img
-              class="not-md:mx-auto max-w-[90%]"
-              src="./src/Untitled.png"
-              alt=""
-            />
+            <img class="mx-auto max-w-[100%]" src="./src/banner.png" alt="" />
           </div>
           <a
             href="#"
@@ -216,7 +214,7 @@
             x-cloak
             x-transition.scale.duration.300ms
             ><div class="bg-white shadow p-3 rounded-full w-10 h-10">
-              <img src="./src/up-arrow-svgrepo-com(2).svg" alt="" /></div
+              <img src="./src/up.svg" alt="" /></div
           ></a>
         </section>
       </main>
@@ -352,24 +350,30 @@
             </h2>
             <h3 class="text-4xl not-md:pt-4">Get To Know Me</h3>
             <p class="py-4 text-[18px]">
-              Hello, I am a fullstack web developer mainly working with Laravel
-              & Livewire. I also create original and impactful HTML Emails that
-              not only engage but also convert users with each campaign, and on
-              the side I work with Wordpress to make websites. In addition to my
-              professional work, I like to spend time to work on our farm with
-              my father.
+              Hello, I am a fullstack web developer mainly working with Laravel.
+              I also create original and impactful HTML Emails that not only
+              engage but also convert users with each campaign, and on the side
+              I work with Wordpress to make websites. In addition to my
+              professional work, I like to spend some time to work on the farm
+              with my father and watching movies.
             </p>
             <div class="flex gap-2 justify-center md:justify-start">
-              <img
-                src="./src/img/icons/links/github.svg"
-                alt="Github icon"
-                class="w-6"
-              />
-              <img
-                src="./src/img/icons/links/linkedin.svg"
-                alt="Linkedin icon"
-                class="w-7"
-              />
+              <a href="https://github.com/Benson-Mucheru" target="_blank"
+                ><img
+                  src="./src/img/icons/links/github.svg"
+                  alt="Github icon"
+                  class="w-6"
+              /></a>
+              <a
+                href="https://www.linkedin.com/in/benson-kimani-861a2a359/"
+                target="_blank"
+              >
+                <img
+                  src="./src/img/icons/links/linkedin.svg"
+                  alt="Linkedin icon"
+                  class="w-7"
+                />
+              </a>
             </div>
             <img
               src="./src/2.png"
@@ -633,7 +637,15 @@
           </div>
         </div>
       </section>
-      <section>
+      <section
+        id="contact"
+        class="pt-18 md:pt-30"
+        x-intersect.enter.half="activeLink = 5"
+        x-intersect.enter.half.once="active = true"
+      >
+        <h2 class="text-center font-ms-maid text-3xl text-orange-500">
+          Contact Me
+        </h2>
         <a href="mailto:bensonmucherukimani"
           ><p>bensonmucherukimani22@gmail.com</p></a
         >
