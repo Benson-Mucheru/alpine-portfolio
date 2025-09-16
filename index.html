@@ -277,7 +277,10 @@
             <div
               class="p-4 bg-white/95 shadow hover:shadow-xl transition-hover duration-500 md:p-10 rounded-2xl text-center not-md:my-4"
             >
-              <div x-html="skill.icon" class="w-1/4 h-auto mx-auto"></div>
+              <div
+                x-html="skill.icon"
+                class="w-1/6 md:w-1/4 h-auto mx-auto"
+              ></div>
               <p x-text="skill.name" class="py-2"></p>
             </div>
           </template>
@@ -295,11 +298,10 @@
             <div
               class="p-4 bg-white/95 shadow hover:shadow-xl transition-hover duration-500 md:p-10 rounded-2xl text-center not-md:my-4"
             >
-              <img
-                :src="tool.icon"
-                :alt="tool.alt"
-                class="w-1/6 h-auto mx-auto"
-              />
+              <div
+                x-html="tool.icon"
+                class="w-1/6 md:w-1/4 h-auto mx-auto"
+              ></div>
               <p x-text="tool.name" class="py-2"></p>
             </div>
           </template>
