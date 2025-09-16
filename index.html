@@ -184,13 +184,13 @@
         >
           <div class="md:w-1/2">
             <h4 class="text-xl">Hey There 👋</h4>
-            <h1 class="text-6xl pb-2 font-bold">I am Ben a,</h1>
-            <div class="text-orange-500 text-7xl">
-              <p class="pb-4 font-bold">
-                <span id="role"></span
-                ><span id="curSor" class="animate-ping">|</span>
-              </p>
-            </div>
+            <h1 class="text-4xl pb-2 font-bold md:text-6xl">I am Ben a,</h1>
+            <p
+              class="pb-4 font-bold text-orange-500 text-3xl md:text-4xl xl:text-5xl"
+            >
+              <span id="role"></span
+              ><span id="curSor" class="animate-ping">|</span>
+            </p>
             <p class="text-xl pb-2">
               Specializing in web development and email marketing, I create
               impactful and engaging online experiences.
@@ -277,11 +277,7 @@
             <div
               class="p-4 bg-white/95 shadow hover:shadow-xl transition-hover duration-500 md:p-10 rounded-2xl text-center not-md:my-4"
             >
-              <img
-                :src="skill.icon"
-                :alt="skill.alt"
-                class="w-1/6 h-auto mx-auto"
-              />
+              <div x-html="skill.icon" class="w-1/4 h-auto mx-auto"></div>
               <p x-text="skill.name" class="py-2"></p>
             </div>
           </template>
