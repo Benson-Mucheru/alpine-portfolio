@@ -94,20 +94,20 @@ Alpine.data("projects", () => ({
 
   laravels: [
     {
-      icon: "src/img/icons/card.png",
+      icon: "src/card.png",
       title: "Kampat",
       description:
         "A website that showcases a company that offers roofing and ceiling services",
       tools: ["HTML", "CSS", "JavaScript", "React"],
     },
     {
-      icon: "src/img/icons/card.png",
+      icon: "src/card.png",
       title: "Oracle",
       description: "jskjdkfjskdjfklsdfjdkkf",
       tools: ["HTML", "CSS", "JavaScript"],
     },
     {
-      icon: "src/img/icons/card.png",
+      icon: "src/card.png",
       title: "Musica",
       description: "jskjdkfjskdjfklsdfjdkkf",
       tools: ["HTML", "CSS", "JavaScript"],
@@ -116,19 +116,19 @@ Alpine.data("projects", () => ({
 
   emails: [
     {
-      icon: "src/img/icons/card.png",
+      icon: "src/card.png",
       title: "Email1",
       description: "jskjdkfjskdjfklsdfjdkkf",
       tools: ["HTML", "CSS", "MJML"],
     },
     {
-      icon: "src/img/icons/card.png",
+      icon: "src/card.png",
       title: "Email2",
       description: "jskjdkfjskdjfklsdfjdkkf",
       tools: ["HTML", "CSS", "JavaScript"],
     },
     {
-      icon: "src/img/icons/card.png",
+      icon: "src/card.png",
       title: "Email3",
       description: "jskjdkfjskdjfklsdfjdkkf",
       tools: ["HTML", "CSS", "JavaScript"],
@@ -137,23 +137,23 @@ Alpine.data("projects", () => ({
 
   wordpresses: [
     {
-      icon: "src/img/icons/card.png",
+      icon: "src/card.png",
       title: "Wordpress1",
       description: "jskjdkfjskdjfklsdfjdkkf",
       tools: ["HTML", "CSS", "JavaScript"],
     },
     {
-      icon: "src/img/icons/card.png",
+      icon: "src/card.png",
       title: "Wordpress2",
       description: "jskjdkfjskdjfklsdfjdkkf",
       tools: ["HTML", "CSS", "JavaScript"],
     },
-    /* {
-      icon: "src/img/icons/card.png",
+    {
+      icon: "src/card.png",
       title: "Wordpress3",
       description: "jskjdkfjskdjfklsdfjdkkf",
       tools: ["HTML", "CSS", "JavaScript"],
-    }, */
+    },
   ],
 }));
 
