@@ -22,10 +22,13 @@
     >
       <!-- NAVBAR -->
       <header
-        class="px-4 py-4 md:px-8 fixed top-0 right-0 left-0 z-1 transition-all duration-300"
-        :class="navBarShadow ? 'md:px-22 md:py-4 shadow-black shadow-md/5 bg-white' : '' "
+        class="px-4 py-4 md:px-8 fixed top-0 right-0 left-0 z-1 transition-all duration-300 w-full"
+        :class="navBarShadow ? 'md:px-4 shadow-black shadow-md/5 bg-white' : '' "
       >
-        <nav class="flex justify-between items-center">
+        <nav
+          class="flex justify-between items-center xl:max-w-[1340px] mx-auto transition-all duration-300"
+          :class="navBarShadow ? 'md:px-6':''"
+        >
           <a href="#" class="not-md:flex-1"
             ><p class="font-ms-maid text-4xl text-neutral">
               Ben<span class="text-orange-500">Mk</span>
@@ -349,12 +352,12 @@
               About Me
             </h2>
             <h3 class="text-4xl not-md:pt-4">Get To Know Me</h3>
-            <p class="py-4 text-[18px]">
+            <p class="py-2 text-[18px] text-[#5b5b5d]" style="line-height: 1.8">
               Hello, I am a fullstack web developer mainly working with Laravel.
               I also create original and impactful HTML Emails that not only
               engage but also convert users with each campaign, and on the side
               I work with Wordpress to make websites. In addition to my
-              professional work, I like to spend some time to work on the farm
+              professional work, I like to spend some time working on the farm
               with my father and watching movies.
             </p>
             <div class="flex gap-2 justify-center md:justify-start">
@@ -637,19 +640,70 @@
           </div>
         </div>
       </section>
-      <section
+
+      <!-- CONTACT SECTION -->
+      <footer
         id="contact"
-        class="pt-18 md:pt-30"
+        class="pt-18 md:pt-30 space-y-4 pb-8"
         x-intersect.enter.half="activeLink = 5"
         x-intersect.enter.half.once="active = true"
       >
         <h2 class="text-center font-ms-maid text-3xl text-orange-500">
-          Contact Me
+          Get In Touch
         </h2>
-        <a href="mailto:bensonmucherukimani"
-          ><p>bensonmucherukimani22@gmail.com</p></a
-        >
-      </section>
+        <!-- Primary Links -->
+        <div class="text-center md:py-4 md:flex justify-center gap-4">
+          <a href="mailto:bensonmucherukimani" class="w-1/2"
+            ><p
+              class="bg-orange-500 text-white p-6 text-2xl rounded-full not-md:mb-1"
+            >
+              Email Me
+            </p></a
+          >
+          <a
+            href="https://www.linkedin.com/in/benson-kimani-861a2a359/"
+            target="_blank"
+            class="w-1/2"
+            ><p class="bg-black text-white p-6 text-2xl rounded-full">
+              Linkedin
+            </p></a
+          >
+        </div>
+
+        <!-- Secondary Links -->
+        <div class="grid md:grid-cols-2 gap-8">
+          <a
+            href="#"
+            target="_blank"
+            class="w-full border-t pt-4 hover:bg-orange-500 hover:p-2 hover:text-white transition-hover duration-300"
+            ><div class="flex justify-between">
+              <div>
+                <h3 class="text-2xl">Twitter</h3>
+                <p>@benmk</p>
+              </div>
+              <img
+                src="./src/img/icons/links/github.svg"
+                class="w-6"
+                alt=""
+              /></div
+          ></a>
+          <a
+            href="#"
+            target="_blank"
+            class="w-full border-t pt-4 hover:bg-orange-500 hover:p-2 hover:text-white transition-hover duration-300"
+            ><div class="flex justify-between">
+              <div>
+                <h3 class="text-2xl">Instagram</h3>
+                <p>@benmk</p>
+              </div>
+              <img
+                src="./src/img/icons/links/github.svg"
+                class="w-6"
+                alt=""
+              /></div
+          ></a>
+        </div>
+      </footer>
     </main>
   </body>
 </html>
