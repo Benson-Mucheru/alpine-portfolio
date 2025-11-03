@@ -192,7 +192,7 @@
           <div class="md:w-1/2">
             <h4 class="text-xl font-semibold">Hey There! 👋</h4>
             <h1 class="text-5xl pb-2 font-bold xl:text-6xl">I am Ben a,</h1>
-            <p class="pb-4 font-semibold text-green-500 text-4xl xl:text-5xl">
+            <p class="pb-4 font-semibold text-green-500 text-3xl xl:text-5xl">
               <span id="role"></span
               ><span id="curSor" class="animate-ping">|</span>
             </p>
@@ -269,7 +269,7 @@
       <div class="relative border-1 border-white/0">
         <!-- Skills -->
         <div
-          class="md:grid grid-cols-3 gap-4 invisible opacity-0 transition-all duration-800"
+          class="grid not-md:grid-cols-2 md:grid-cols-3 gap-4 invisible opacity-0 transition-all duration-800"
           :class="showCards ? '': 'visible opacity-100' "
           x-cloak
         >
@@ -280,7 +280,7 @@
             >
               <div
                 x-html="skill.icon"
-                class="w-1/6 md:w-1/4 h-auto mx-auto"
+                class="w-1/2 md:w-1/4 h-auto mx-auto"
               ></div>
               <p x-text="skill.name" class="py-2"></p>
             </div>
@@ -289,7 +289,7 @@
 
         <!-- Tools -->
         <div
-          class="absolute top-0 left-0 right-0 bottom-0 md:grid grid-cols-3 gap-4"
+          class="absolute top-0 left-0 right-0 bottom-0 grid not-md:grid-cols-2 grid-cols-3 gap-4"
           x-cloak
           x-show="showCards"
           x-transition.opacity.duration.800ms
@@ -301,7 +301,7 @@
             >
               <div
                 x-html="tool.icon"
-                class="w-1/6 md:w-1/4 h-auto mx-auto"
+                class="w-1/2 md:w-1/4 h-auto mx-auto"
               ></div>
               <p x-text="tool.name" class="py-2"></p>
             </div>
