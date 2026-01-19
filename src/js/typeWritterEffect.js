@@ -3,7 +3,7 @@ const description = document.getElementById("role");
 const roles = [
   "Web Developer",
   "Email Developer",
-  "Wordpress Developer",
+  "React Developer",
   "PHP Developer",
   "Laravel Developer",
 ];
