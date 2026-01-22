@@ -224,7 +224,7 @@
     </div>
 
     <!-- SKILLS SECTION -->
-    <div class="relative overflow-hidden">
+    <div class="relative">
       <section
       id="skills"
       class="px-4 pt-18 md:px-22 md:pt-30 xl:max-w-[1280px] mx-auto"
@@ -404,7 +404,7 @@
           alt=""
         />
 
-        <img src="./src/3.png" class="hidden lg:block absolute -bottom-1/4 -right-1/6" alt="">
+        <img src="./src/3.png" class="overflow-hidden hidden lg:block absolute -bottom-1/4 -right-1/6" alt="">
         <h2 class="text-center font-ms-maid text-3xl text-orange-500">
           Projects
         </h2>
@@ -419,7 +419,7 @@
             @click="toggleProject(1)"
             :class="projectIndex == 1 ? 'text-white' : 'bg-white text-gray-700 shadow' "
           >
-            laravel
+            all
           </button>
 
           <!-- Emails btn -->
@@ -429,52 +429,54 @@
             @click="toggleProject(2)"
             :class="projectIndex == 2 ? 'bg-orange-500 text-white' : 'bg-white text-gray-700 shadow' "
           >
-            emails
+            laravel
           </button>
 
-          <!-- Wordpress btn -->
+          <!-- Email btn -->
           <button
             type="button"
             class="px-8 py-2 rounded-full text-gray-700 text-center transition-all duration-500"
             @click="toggleProject(3)"
             :class="projectIndex == 3 ? 'bg-orange-500 text-white' : 'bg-white text-gray-700 shadow' "
           >
-            wordpress
+            email
           </button>
         </div>
 
         <div class="relative z-1 border-1 border-white/0" ref="contain">
-          <!-- Laravel cards -->
+          <!-- All cards -->
           <div
-            class="transition-all duration-500"
+            class="transition-all duration-300"
             :class="projectIndex == 1 ? 'opacity-100 visible scale-100 ' : 'opacity-0 invisible scale-98' "
-            :style="projectIndex == 3 ? {height: $refs.wordpress.scrollHeight+'px'}: '' "
+            :style="projectIndex == 2 ? {height: $refs.laravel.scrollHeight+'px'}: '' "
+            :style="projectIndex == 3 ? {height: $refs.email.scrollHeight+'px'}: '' "
           >
             <div
               class="grid not-md:grid-cols-1s not-md:gap-0 md:grid-cols-2 xl:grid-cols-3 gap-4"
             >
-              <template x-for="laravel in laravels">
+              <template x-for="project in allProjects">
                 <div
-                  class="not-md:my-4 bg-gray-600/10 shadow hover:shadow-xl transition-shadow duration-300 p-4 rounded-2xl"
+                  class="not-md:my-4 bg-gray-600/10 shadow hover:shadow-xl transition-shadow duration-300 rounded-2xl"
                 >
                   <!-- Image -->
                   <img
-                    class="rounded-2xl object-cover shadow"
-                    :src="laravel.icon"
+                    class="rounded-t-2xl object-cover"
+                    :src="project.icon"
                     alt=""
                   />
-                  <!-- Title -->
+                  <div class="p-2">
+                    <!-- Title -->
                   <h3
                     class="text-3xl font-semibold pt-2"
-                    x-text="laravel.title"
+                    x-text="project.title"
                   ></h3>
 
                   <!-- Description -->
-                  <p class="opacity-80 py-1" x-text="laravel.description"></p>
+                  <p class="opacity-80 py-1" x-text="project.description"></p>
 
                   <!--Tech Stack -->
                   <ul class="flex items-center gap-2 py-1">
-                    <template x-for="tool in laravel.tools">
+                    <template x-for="tool in project.tools">
                       <li
                         class="bg-white text-black px-2 opacity-80 rounded-full font-semibold text-[13px]"
                         x-text="tool"
@@ -485,7 +487,8 @@
                   <!-- Links -->
                   <div class="w-full flex gap-2 my-2">
                     <a
-                      href="#"
+                      :href="project.link"
+                      target="_blank"
                       class="bg-white py-2 rounded-full flex justify-center items-center gap-2 w-1/2"
                       ><img
                         src="./src/img/icons/visit.svg"
@@ -496,7 +499,8 @@
                     >
 
                     <a
-                      href="#"
+                      :href="project.github"
+                      target="_blank"
                       class="bg-white py-2 rounded-full flex justify-center items-center gap-2 w-1/2"
                       ><img
                         src="./src/img/icons/links/github.svg"
@@ -506,6 +510,78 @@
                       <div class="text-black">Source Code</div></a
                     >
                   </div>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </div>
+
+          <!-- Laravel cards -->
+          <div
+            class="absolute top-0 transition-all duration-500"
+            :class="projectIndex == 2 ? 'opacity-100 visible scale-100' : 'opacity-0 invisible scale-98' "
+            x-ref="laravel"
+          >
+            <div
+              class="grid not-md:grid-cols-1s not-md:gap-0 md:grid-cols-2 xl:grid-cols-3 gap-4"
+            >
+              <template x-for="laravel in laravels">
+                <div
+                  class="not-md:my-4 bg-gray-600/10 shadow hover:shadow-xl transition-shadow duration-300 rounded-2xl"
+                >
+                  <!-- Image -->
+                  <img
+                    class="rounded-t-2xl object-cover"
+                    :src="laravel.icon"
+                    alt=""
+                  />
+                  
+                  <div class="p-2">
+                    <!-- Title -->
+                  <h3
+                    class="text-3xl font-semibold pt-2"
+                    x-text="laravel.title"
+                  ></h3>
+
+                  <!-- Description -->
+                  <p class="opacity-80 py-1" x-text="laravel.description"></p>
+
+                  <!-- Tech Stack -->
+                  <ul class="flex items-center gap-2 py-1">
+                    <template x-for="tool in laravel.tools">
+                      <li
+                        class="bg-white text-black px-2 opacity-80 rounded-full font-semibold text-[13px]"
+                        x-text="tool"
+                      ></li>
+                    </template>
+                  </ul>
+                  <!-- Links -->
+                  <div class="w-full flex gap-2 my-2">
+                    <a
+                      :href="laravel.link"
+                      target="_blank"
+                      class="bg-white py-2 rounded-full flex justify-center items-center gap-2 w-1/2"
+                      ><img
+                        src="./src/img/icons/visit.svg"
+                        class="w-6"
+                        alt=""
+                      />
+                      <div>Live Demo</div></a
+                    >
+
+                    <a
+                      :href="laravel.github"
+                      target="_blank"
+                      class="bg-white py-2 rounded-full flex justify-center items-center gap-2 w-1/2"
+                      ><img
+                        src="./src/img/icons/links/github.svg"
+                        class="w-6"
+                        alt=""
+                      />
+                      <div>Source Code</div></a
+                    >
+                  </div>
+                  </div>
                 </div>
               </template>
             </div>
@@ -514,22 +590,25 @@
           <!-- Email cards -->
           <div
             class="absolute top-0 transition-all duration-500"
-            :class="projectIndex == 2 ? 'opacity-100 visible scale-100' : 'opacity-0 invisible scale-98' "
+            :class="projectIndex == 3 ? 'opacity-100 visible scale-100' : 'opacity-0 invisible scale-98' "
+            x-ref="email"
           >
             <div
               class="grid not-md:grid-cols-1s not-md:gap-0 md:grid-cols-2 xl:grid-cols-3 gap-4"
             >
               <template x-for="email in emails">
                 <div
-                  class="not-md:my-4 bg-gray-600/10 shadow hover:shadow-xl transition-shadow duration-300 p-4 rounded-2xl"
+                  class="not-md:my-4 bg-gray-600/10 shadow hover:shadow-xl transition-shadow duration-300 rounded-2xl"
                 >
                   <!-- Image -->
                   <img
-                    class="rounded-2xl object-cover"
+                    class="rounded-t-2xl object-cover"
                     :src="email.icon"
                     alt=""
                   />
-                  <!-- Title -->
+
+                  <div class="p-2">
+                    <!-- Title -->
                   <h3
                     class="text-3xl font-semibold pt-2"
                     x-text="email.title"
@@ -550,7 +629,8 @@
                   <!-- Links -->
                   <div class="w-full flex gap-2 my-2">
                     <a
-                      href="#"
+                      :href="email.link"
+                      target="_blank"
                       class="bg-white py-2 rounded-full flex justify-center items-center gap-2 w-1/2"
                       ><img
                         src="./src/img/icons/visit.svg"
@@ -561,7 +641,8 @@
                     >
 
                     <a
-                      href="#"
+                      :href="email.github"
+                      target="_blank"
                       class="bg-white py-2 rounded-full flex justify-center items-center gap-2 w-1/2"
                       ><img
                         src="./src/img/icons/links/github.svg"
@@ -571,72 +652,6 @@
                       <div>Source Code</div></a
                     >
                   </div>
-                </div>
-              </template>
-            </div>
-          </div>
-
-          <!-- Wordpress cards -->
-          <div
-            class="absolute top-0 transition-all duration-500"
-            :class="projectIndex == 3 ? 'opacity-100 visible scale-100' : 'opacity-0 invisible scale-98' "
-            x-ref="wordpress"
-          >
-            <div
-              class="grid not-md:grid-cols-1s not-md:gap-0 md:grid-cols-2 xl:grid-cols-3 gap-4"
-            >
-              <template x-for="wordpress in wordpresses">
-                <div
-                  class="not-md:my-4 bg-gray-600/10 shadow hover:shadow-xl transition-shadow duration-300 p-4 rounded-2xl"
-                >
-                  <!-- Image -->
-                  <img
-                    class="rounded-2xl object-cover"
-                    :src="wordpress.icon"
-                    alt=""
-                  />
-
-                  <!-- Title -->
-                  <h3
-                    class="text-3xl font-semibold pt-2"
-                    x-text="wordpress.title"
-                  ></h3>
-
-                  <!-- Description -->
-                  <p class="opacity-80 py-1" x-text="wordpress.description"></p>
-
-                  <!-- Tech Stack -->
-                  <ul class="flex items-center gap-2 py-1">
-                    <template x-for="tool in wordpress.tools">
-                      <li
-                        class="bg-white text-black px-2 opacity-80 rounded-full font-semibold text-[13px]"
-                        x-text="tool"
-                      ></li>
-                    </template>
-                  </ul>
-                  <!-- Links -->
-                  <div class="w-full flex gap-2 my-2">
-                    <a
-                      href="#"
-                      class="bg-white py-2 rounded-full flex justify-center items-center gap-2 w-1/2"
-                      ><img
-                        src="./src/img/icons/visit.svg"
-                        class="w-6"
-                        alt=""
-                      />
-                      <div>Live Demo</div></a
-                    >
-
-                    <a
-                      href="#"
-                      class="bg-white py-2 rounded-full flex justify-center items-center gap-2 w-1/2"
-                      ><img
-                        src="./src/img/icons/links/github.svg"
-                        class="w-6"
-                        alt=""
-                      />
-                      <div>Source Code</div></a
-                    >
                   </div>
                 </div>
               </template>
@@ -677,13 +692,13 @@
         <!-- Secondary Links -->
         <div class="grid md:grid-cols-2 gap-8">
           <a
-            href="#"
+            href="https://github.com/Benson-Mucheru"
             target="_blank"
             class="w-full border-t pt-4 hover:bg-orange-500 hover:p-2 hover:text-white transition-hover duration-300"
             ><div class="flex justify-between">
               <div>
-                <h3 class="text-2xl">Twitter</h3>
-                <p>@benmk</p>
+                <h3 class="text-2xl">Github</h3>
+                <p>@benson-mucheru</p>
               </div>
               <img
                 src="./src/img/icons/links/github.svg"
@@ -692,17 +707,17 @@
               /></div
           ></a>
           <a
-            href="#"
+            href="https://x.com/Ben_Lowkey_Dev"
             target="_blank"
             class="w-full border-t pt-4 hover:bg-orange-500 hover:p-2 hover:text-white transition-hover duration-300"
             ><div class="flex justify-between">
               <div>
-                <h3 class="text-2xl">Instagram</h3>
-                <p>@benmk</p>
+                <h3 class="text-2xl">X</h3>
+                <p>@Ben_Lowkey_Dev</p>
               </div>
               <img
-                src="./src/img/icons/links/github.svg"
-                class="w-6"
+                src="./src/img/icons/links/x.svg"
+                class="w-7"
                 alt=""
               /></div
           ></a>
